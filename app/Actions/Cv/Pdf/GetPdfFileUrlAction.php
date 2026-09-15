@@ -2,7 +2,7 @@
 
 namespace App\Actions\Cv\Pdf;
 
-use App\Actions\File\GetFileUrlAction;
+use Illuminate\Support\Facades\Storage;
 
 class GetPdfFileUrlAction
 {
@@ -13,6 +13,6 @@ class GetPdfFileUrlAction
     {
         $file = resolve(GetPdfFileAction::class)->execute();
 
-        return $file ? resolve(GetFileUrlAction::class)->execute($file) : null;
+        return $file ? Storage::disk('s3')->url($file->url) : null;
     }
 }

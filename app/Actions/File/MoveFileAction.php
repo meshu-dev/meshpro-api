@@ -21,8 +21,7 @@ class MoveFileAction
 
         $file = new File(storage_path('app/private') . '/' . $filename);
 
-        $fileDriver = config('filesystems.default');
-        $fileUrl    = Storage::disk($fileDriver)->putFileAs(
+        $fileUrl = Storage::disk('s3')->putFileAs(
             'site',
             $file,
             $filename,
@@ -32,7 +31,7 @@ class MoveFileAction
         throw_unless(
             $fileUrl,
             FileNotUploadedException::class,
-            'File could not be uploaded to ' . $fileDriver
+            'File could not be uploaded to S3'
         );
 
         return $fileUrl;
