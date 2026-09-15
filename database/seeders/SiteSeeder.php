@@ -34,6 +34,7 @@ class SiteSeeder extends Seeder
 
         $params = [
             'user_id' => $user->id,
+            'type'    => $site['file']['type'],
             'name'    => $site['file']['name'],
             'url'     => $site['file']['url'],
         ];

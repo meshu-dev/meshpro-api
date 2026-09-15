@@ -15,5 +15,5 @@ class File extends Model
 
     protected $table = 'files';
 
-    protected $fillable = ['user_id', 'name', 'url'];
+    protected $fillable = ['user_id', 'type', 'name', 'url'];
 }

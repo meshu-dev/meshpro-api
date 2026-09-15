@@ -99,6 +99,7 @@ class PortfolioSeeder extends Seeder
 
             $file = File::create([
                 'user_id' => $userId,
+                'type'    => $project['file']['type'],
                 'name'    => $project['file']['name'],
                 'url'     => $project['file']['url'],
             ]);

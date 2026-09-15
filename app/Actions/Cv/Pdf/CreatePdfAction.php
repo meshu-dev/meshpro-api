@@ -3,6 +3,7 @@
 namespace App\Actions\Cv\Pdf;
 
 use App\Actions\File\MoveFileAction;
+use App\Enums\FileTypeEnum;
 use App\Models\File;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -35,8 +36,14 @@ class CreatePdfAction
 
         // Create file DB data
         File::updateOrCreate(
-            ['user_id' => $userId, 'name' => self::FILENAME],
-            ['url'  => $fileUrl]
+            [
+                'user_id' => $userId,
+                'type' => FileTypeEnum::S3->value,
+                'name' => self::FILENAME
+            ],
+            [
+                'url'  => $fileUrl
+            ]
         );
     }
 }

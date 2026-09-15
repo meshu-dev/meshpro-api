@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\{DynamicValueEnum, TypeEnum};
+use App\Enums\{DynamicValueEnum, FileTypeEnum, TypeEnum};
 
 return [
     'cv' => [
@@ -166,6 +166,7 @@ return [
                     'Laravel',
                 ],
                 'file' => [
+                    'type' => FileTypeEnum::WEB->value,
                     'name' => 'cv.png',
                     'url'  => fake()->placeholderImageUrl(512, 512),
                 ],
@@ -183,6 +184,7 @@ return [
                     'Laravel',
                 ],
                 'file' => [
+                    'type' => FileTypeEnum::WEB->value,
                     'name' => 'learning-lab.png',
                     'url'  => fake()->placeholderImageUrl(512, 512),
                 ],
@@ -230,6 +232,7 @@ return [
                 TypeEnum::PORTFOLIO->value,
             ],
             'file' => [
+                'type' => FileTypeEnum::WEB->value,
                 'name' => 'github.png',
                 'url'  => fake()->placeholderImageUrl(64, 64),
             ],
@@ -243,6 +246,7 @@ return [
                 TypeEnum::PORTFOLIO->value,
             ],
             'file' => [
+                'type' => FileTypeEnum::WEB->value,
                 'name' => 'linkedin.png',
                 'url'  => fake()->placeholderImageUrl(64, 64),
             ],
@@ -255,6 +259,7 @@ return [
                 TypeEnum::CV->value,
             ],
             'file' => [
+                'type' => FileTypeEnum::WEB->value,
                 'name' => 'website.png',
                 'url'  => fake()->placeholderImageUrl(64, 64),
             ],

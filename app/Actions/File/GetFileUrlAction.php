@@ -16,12 +16,6 @@ class GetFileUrlAction
         if (Str::isUrl($file->url, ['http', 'https'])) {
             return $file->url;
         }
-
-        $fileDriver = config('filesystems.default');
-
-        if ($fileDriver === 'local') {
-            return Storage::temporaryUrl($file->url, now()->addMinutes(60));
-        }
-        return Storage::url($file->url);
+        return Storage::disk('s3')->url($file->url);
     }
 }
